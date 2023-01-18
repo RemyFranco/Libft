@@ -6,7 +6,7 @@
 #    By: rfranco <rfranco@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 10:49:16 by rfranco           #+#    #+#              #
-#    Updated: 2023/01/12 20:56:06 by rfranco          ###   ########.fr        #
+#    Updated: 2023/01/13 14:15:49 by rfranco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,9 +98,9 @@ OBJS_DIR = 		objs
 OBJS =			$(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
 
 # TARGETS
-all: $(OBJS_DIR) $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS_DIR) $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 $(OBJS_DIR)/%.o: %.c

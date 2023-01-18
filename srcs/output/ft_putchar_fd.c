@@ -6,7 +6,7 @@
 /*   By: rfranco <rfranco@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:06:51 by rfranco           #+#    #+#             */
-/*   Updated: 2023/01/12 14:08:03 by rfranco          ###   ########.fr       */
+/*   Updated: 2023/01/18 14:04:18 by rfranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,10 @@
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
+}
+
+int	ft_printchar_fd(char c, int fd)
+{
+	ft_putchar_fd(c, fd);
+	return (1);
 }

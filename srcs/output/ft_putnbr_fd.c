@@ -6,7 +6,7 @@
 /*   By: rfranco <rfranco@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:15:49 by rfranco           #+#    #+#             */
-/*   Updated: 2023/01/12 16:35:40 by rfranco          ###   ########.fr       */
+/*   Updated: 2023/01/18 14:26:21 by rfranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,30 @@ void	ft_putnbr_fd(int n, int fd)
 		}
 		ft_putchar_fd((n % 10) + '0', fd);
 	}
+}
+
+int	ft_printnbr_fd(int n, int fd)
+{
+	int	count;
+
+	count = 0;
+	if (n == -2147483648)
+	{
+		count += ft_printstr_fd("-2147483648", fd);
+		return (count);
+	}
+	else
+	{
+		if (n < 0)
+		{
+			n = -n;
+			count += ft_printchar_fd('-', fd);
+		}
+		if (n > 9)
+		{
+			count += ft_printnbr_fd(n / 10, fd);
+		}
+		count += ft_printchar_fd((n % 10) + '0', fd);
+	}
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: rfranco <rfranco@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:49:27 by rfranco           #+#    #+#             */
-/*   Updated: 2023/01/12 20:01:20 by rfranco          ###   ########.fr       */
+/*   Updated: 2023/01/18 14:07:41 by rfranco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,13 @@ char	*ft_itoa(int n);
 // functions used to output data to a file descriptor
 
 void	ft_putchar_fd(char c, int fd);
+int		ft_printchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
+int		ft_printstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
+int		ft_printendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+int		ft_printnbr_fd(int n, int fd);
 
 // linked_list
 // functions used to manipulate linked list
