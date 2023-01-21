@@ -6,7 +6,7 @@
 #    By: rfranco <rfranco@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 10:49:16 by rfranco           #+#    #+#              #
-#    Updated: 2023/01/13 14:15:49 by rfranco          ###   ########.fr        #
+#    Updated: 2023/01/21 14:47:16 by rfranco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ AR =			ar rcs
 RM = 			rm -rf
 
 # HEADERS
-H_DIR =			headers
+H_DIR =			inc
 
 # SOURCES
 ## Main directory
@@ -29,7 +29,7 @@ SUB_DIRS =		ctype				\
 				type_conversion		\
 				output				\
 				linked_list			\
-				misc				\
+				alloc				\
 
 ## To tell Make that it should search for source files in those directories
 VPATH = $(addprefix $(SRCS_DIR)/, $(SUB_DIRS)/)
@@ -90,7 +90,7 @@ SRCS +=			ft_lstnew.c			\
 				ft_lstiter.c		\
 				ft_lstmap.c			\
 				
-### misc sub-directory
+### alloc sub-directory
 SRCS +=			ft_calloc.c			\
 
 # OBJECTS
@@ -98,16 +98,17 @@ OBJS_DIR = 		objs
 OBJS =			$(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
 
 # TARGETS
-all: $(NAME)
-
-$(NAME): $(OBJS_DIR) $(OBJS)
-	$(AR) $(NAME) $(OBJS)
-
-$(OBJS_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) -I $(H_DIR) -c $< -o $@
+all: $(OBJS_DIR) $(NAME)  
 
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
+
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+
+$(OBJS_DIR)/%.o: %.c
+	$(CC) $(CFLAGS) -I$(H_DIR) -c $< -o $@
+
 
 clean:
 	$(RM) $(OBJS_DIR)
